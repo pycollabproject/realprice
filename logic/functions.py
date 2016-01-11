@@ -11,9 +11,9 @@ class Processing:
 
     def average(self, *args):
         """Simple average calculator"""
-        sumprice = sum(args)
+        sum = sum(args)
         totalinstances = len(args)
-        average = sumprice / totalinstances
+        average = sum / totalinstances
         Processing.processeddata.update({'meanprice': average})
         return average
 
