@@ -20,7 +20,7 @@
       // Will query the server with a POST request form zone_query
       // in the format {query_data: value}
       // where value is the search term
-      // example:  $.post('index.html', {'query_data': 'Seoul'}
+      // example:  $.post('zone_query', {'query_data': 'Seoul'}
       // this is for testing purpose only
 
       alerts.text('Queried the server for ' + value);
