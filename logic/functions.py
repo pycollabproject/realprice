@@ -14,14 +14,33 @@ class Processing:
         sum = sum(args)
         totalinstances = len(args)
         average = sum / totalinstances
-        Processing.processeddata.update({'meanprice': average})
         return average
+
+    def mean(self, *args):
+        """fixes potential issue with calling average in location method"""
+        mean = self.average(args)
+        Processing.processeddata.update({'meanprice': mean})
+        return mean
 
     def location(self, *args1, *args2):
         """Creates an average location for all houses analysed, in longitude and latitude.
 
         Uses output from Processing.average() to determine average latitude and longitude.
+
+        I think there would be an issue the Processing.processeddata.update({'meanprice': mean})
+        because it would record this average as the meanprice, so I created a seperate mean function that will call the average function
         """
         averagelat = self.average(args1)
         averagelong = self.average(args2)
         Processing.processeddata.update({'averagelat': averagelat, 'averagelong': averagelong})
+        
+    def median(self, *args):
+        """Simple median calculator"""
+        prices = sorted(args)
+        totalInstances = len(args)
+        if totalInstances%2 == 0:
+            median = (prices[totalInstances/2]+prices[(totalInstances/2)-1])/2
+        else:
+            median = prices[(totalInstances-1)/2]
+        Processing.processeddata.update({'median':median})
+        return prices[(totalInstances-1)/2]
