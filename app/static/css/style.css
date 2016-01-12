@@ -1,0 +1,38 @@
+body{
+  background-color: #0c3f44;
+}
+.search_bar{
+  position: absolute;
+  top: 49%;
+  left: 48%;
+  width: 11%;
+  height: 2%;
+  opacity: 1;
+  background: none;
+  border: 2px solid white;
+  font-family: helvetica, arial, sans serif;
+  color: white;
+  font-weight: bold;
+  padding: 2px;
+}
+.search_logo{
+  position: absolute;
+  top: 49%;
+  left: 60%;
+  height: 52px;
+  width: 52px;
+  background: url("/static/images/search.png") no-repeat;
+  border: none;
+}
+.alerts{
+  position: absolute;
+  top: 42%;
+  left: 40%;
+  width: 80%;
+  height: 3%;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+button:focus {outline:0;}
