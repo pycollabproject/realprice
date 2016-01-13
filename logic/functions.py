@@ -22,7 +22,7 @@ class Processing:
         Processing.processeddata.update({'meanprice': mean})
         return mean
 
-    def location(self, *args1, *args2):
+    def location(self, *args1, **args2):
         """Creates an average location for all houses analysed, in longitude and latitude.
 
         Uses output from Processing.average() to determine average latitude and longitude.

@@ -1,19 +1,21 @@
 import unittest
 from logic.functions import Processing
-# On test, this import function does not work. Error: ImportError: no module named 'logic'.
-# It is not a module, it is a package.
 
 
 class FunctionTestCase(unittest.TestCase):
-    """Conducts tests for logic/functions.py"""
+    """Conducts tests for logic folder."""
 
     def setUp(self):
         self.processing = Processing()
 
     def average_test(self):
-        processing = Processing()
+        self.assertEqual(self.processing.average(5, 10, 15), 10)
 
-        assert processing.average(5, 10, 15) == 10
+    def median_test(self):
+        self.assertEqual(self.processing.median(1, 2, 3, 4, 5), 3)
 
     def tearDown(self):
         pass
+
+if __name__ == '__main__':
+    unittest.main()
