@@ -1,6 +1,8 @@
 import unittest
 from logic.functions import Processing
 
+
+
 class FunctionTestCase(unittest.TestCase):
     """Conducts tests for logic/functions.py"""
 
@@ -9,7 +11,8 @@ class FunctionTestCase(unittest.TestCase):
 
     def average_test(self):
         processing = Processing()
-        assert processing.average(5, 10, 15) == processing.average(9, 10, 11)
+
+        assert processing.average(5, 10, 15) == 10 and not 30
 
     def tearDown(self):
         pass
