@@ -40,8 +40,8 @@ class Processing:
         prices = sorted(args)
         totalInstances = len(args)
         if totalInstances%2 == 0:
-            median = (prices[totalInstances/2]+prices[(totalInstances/2)-1])/2
+            median = (prices[int(totalInstances/2)]+prices[int((totalInstances/2)-1)])/2
         else:
-            median = prices[(totalInstances-1)/2]
+            median = prices[int((totalInstances-1)/2)]
         Processing.processeddata.update({'median':median})
-        return prices[(totalInstances-1)/2]
+        return prices[int((totalInstances-1)/2)]
