@@ -3,8 +3,10 @@ import json  # import function unused for now, until we have a sample JSON file.
 class Processing:
     """Contains logic for processing json from wrapper.
 
-    :meanprice: defines mean price of input prices.
+    :mean: defines mean price of input prices from mean
     :location: defines average lat and long for input.
+    :average: defines average.
+    :median: defines median for input data.
     Note: JSON imports INCOMPLETE
     """
     processeddata = {}
@@ -44,4 +46,10 @@ class Processing:
         else:
             median = prices[int((totalInstances-1)/2)]
         Processing.processeddata.update({'median':median})
+<<<<<<< Updated upstream
         return prices[int((totalInstances-1)/2)]
+=======
+        return prices[(totalInstances-1)/2]
+
+    def iqr(self):
+>>>>>>> Stashed changes
