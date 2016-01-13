@@ -11,9 +11,9 @@ class Processing:
 
     def average(self, *args):
         """Simple average calculator"""
-        sum = sum(args)
+        total = sum(args)
         totalinstances = len(args)
-        average = sum / totalinstances
+        average = total / totalinstances
         return average
 
     def mean(self, *args):
@@ -28,7 +28,8 @@ class Processing:
         Uses output from Processing.average() to determine average latitude and longitude.
 
         I think there would be an issue the Processing.processeddata.update({'meanprice': mean})
-        because it would record this average as the meanprice, so I created a seperate mean function that will call the average function
+        because it would record this average as the meanprice, so I created a seperate mean function
+        that will call the average function
         """
         averagelat = self.average(args1)
         averagelong = self.average(args2)

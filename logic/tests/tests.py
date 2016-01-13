@@ -13,7 +13,7 @@ class FunctionTestCase(unittest.TestCase):
     def average_test(self):
         processing = Processing()
 
-        assert processing.average(5, 10, 15) == 10 and not 30
+        assert processing.average(5, 10, 15) == 10
 
     def tearDown(self):
         pass
