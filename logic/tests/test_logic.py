@@ -8,11 +8,14 @@ class FunctionTestCase(unittest.TestCase):
     def setUp(self):
         self.processing = Processing()
 
-    def average_test(self):
+    def test_average(self):
         self.assertEqual(self.processing.average(5, 10, 15), 10)
 
-    def median_test(self):
+    def test_median(self):
         self.assertEqual(self.processing.median(1, 2, 3, 4, 5), 3)
+
+    def test_sample(self):
+        self.failUnlessEqual(2, 2)
 
     def tearDown(self):
         pass
