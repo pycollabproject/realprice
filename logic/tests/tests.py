@@ -1,6 +1,7 @@
 import unittest
 from logic.functions import Processing
-
+# On test, this import function does not work. Error: ImportError: no module named 'logic'.
+# It is not a module, it is a package.
 
 
 class FunctionTestCase(unittest.TestCase):
