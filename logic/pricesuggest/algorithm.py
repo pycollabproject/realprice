@@ -1,3 +1,6 @@
+import json
+
+
 class pricesuggest:
     """
 
@@ -32,6 +35,11 @@ class pricesuggest:
         ...
         return secondary price
     """
+
+    def readData(self):
+        with open("algorithmstored") as stored_algorithm:
+            stored_algorithm = json.load(stored_algorithm)
+            print(stored_algorithm)
 
     def primaryPrice(self):
         pass
