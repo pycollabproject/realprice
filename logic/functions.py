@@ -38,8 +38,8 @@ class Processing:
 
         Uses output from Processing.average() to determine average latitude and longitude.
         """
-        averagelat = cls.average(args1[0])
-        averagelong = cls.average(args2[0])
+        averagelat = cls.average(args1)
+        averagelong = cls.average(args2)
         Processing.processeddata.update({'averagelat': averagelat, 'averagelong': averagelong})
 
     @staticmethod
@@ -64,7 +64,7 @@ class Processing:
         if len(args) <= 1:
             return -1
 
-        mean = cls.average(args[0])
+        mean = cls.average(args)
         sum = 0
         for a in args:
             sum += pow((a - mean),2)
