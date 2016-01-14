@@ -4,8 +4,13 @@ from math import pow, sqrt
 class Processing:
     """Contains logic for processing json from wrapper.
 
-    :meanprice: defines mean price of input prices.
+    :mean: defines mean price of input prices from mean
     :location: defines average lat and long for input.
+    :average: defines average.
+    :median: defines median for input data.
+    :iqr: defines iqr for input data.
+    :standardDeviation: defines standard deviation for inout data.
+
     Note: JSON imports INCOMPLETE
     """
     processeddata = {}
