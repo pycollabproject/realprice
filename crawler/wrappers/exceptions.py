@@ -1,2 +1,0 @@
-class TrulioException(Exception):
-    pass
