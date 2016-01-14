@@ -1,3 +1,88 @@
-body {
-  background-color: black;
+head {
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+    padding: 0;
+    z-index: 1;
 }
+
+#header {
+    padding: 5px;
+    height: 30px;
+    background-color: #ffffff;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    position: relative;
+}
+
+.logo {
+    height: 80%;
+    position: absolute;
+}
+body {
+    background-color: #f6f6fc;
+    margin: 0;
+    padding: 0;
+}
+
+.main_div {
+    height: 100%;
+    z-index: -1;
+}
+
+#map {
+    width: 70%;
+    height: 50%;
+    float: left;
+    z-index: -2;
+}
+
+#listings {
+    width: 30%;
+    height: 857px;
+    float: left;
+    box-shadow: 3px 0 5px #dbdbe0 inset;
+    overflow-y: scroll;
+    z-index: auto;
+}
+
+.listing {
+    background: white;
+    width: 23%;
+    margin-left: 15px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    height: 160px;
+    box-shadow: 3px 3px 5px #dbdbe0;
+    float: left;
+}
+
+#price {
+    font-size: large;
+    font-weight: bolder;
+    color: cadetblue;
+}
+
+.listImg {
+    height: 110px;
+    width: 100%;
+}
+
+.drop-shadow {
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.drop-shadow:hover {
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0) inset;
+}
+
