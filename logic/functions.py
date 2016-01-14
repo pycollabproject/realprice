@@ -18,6 +18,8 @@ class Processing:
     @staticmethod
     def average(*args):
         """Simple average calculator"""
+        if type(args[0]) is not int:
+             args = args[0]
         total = sum(args)  # Error starts here, and goes up the stack.
         totalinstances = len(args)
         average = total / totalinstances
@@ -36,8 +38,8 @@ class Processing:
 
         Uses output from Processing.average() to determine average latitude and longitude.
         """
-        averagelat = cls.average(args1)
-        averagelong = cls.average(args2)
+        averagelat = cls.average(args1[0])
+        averagelong = cls.average(args2[0])
         Processing.processeddata.update({'averagelat': averagelat, 'averagelong': averagelong})
 
     @staticmethod
@@ -62,7 +64,7 @@ class Processing:
         if len(args) <= 1:
             return -1
 
-        mean = cls.mean(args)
+        mean = cls.average(args[0])
         sum = 0
         for a in args:
             sum += pow((a - mean),2)
