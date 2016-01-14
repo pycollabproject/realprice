@@ -23,19 +23,21 @@ class Processing:
         average = total / totalinstances
         return average
 
-    def mean(self, *args):
+    @classmethod
+    def mean(cls, *args):
         """fixes potential issue with calling average in location method"""
-        mean = self.average(args)
+        mean = cls.average(args)
         Processing.processeddata.update({'meanprice': mean})
         return mean
 
-    def location(self, *args1, **args2):
+    @classmethod
+    def location(cls, *args1, **args2):
         """Creates an average location for all houses analysed, in longitude and latitude.
 
         Uses output from Processing.average() to determine average latitude and longitude.
         """
-        averagelat = self.average(args1)
-        averagelong = self.average(args2)
+        averagelat = cls.average(args1)
+        averagelong = cls.average(args2)
         Processing.processeddata.update({'averagelat': averagelat, 'averagelong': averagelong})
 
     @staticmethod
@@ -50,7 +52,8 @@ class Processing:
         Processing.processeddata.update({'median':median})
         return prices[int((totalInstances-1)/2)]
 
-    def standardDeviation(self, *args):
+    @classmethod
+    def standardDeviation(cls, *args):
         """
         finds the standard deviation using the formula for samples(hence the len(args) -1) which is sqrt((sum((x - mean)^2)/n-1)
         """
@@ -59,7 +62,7 @@ class Processing:
         if len(args) <= 1:
             return -1
 
-        mean = self.mean(args)
+        mean = cls.mean(args)
         sum = 0
         for a in args:
             sum += pow((a - mean),2)
