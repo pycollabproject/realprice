@@ -15,7 +15,8 @@ class Processing:
     """
     processeddata = {}
 
-    def average(self, *args):
+    @staticmethod
+    def average(*args):
         """Simple average calculator"""
         total = sum(args)  # Error starts here, and goes up the stack.
         totalinstances = len(args)
@@ -37,7 +38,8 @@ class Processing:
         averagelong = self.average(args2)
         Processing.processeddata.update({'averagelat': averagelat, 'averagelong': averagelong})
 
-    def median(self, *args):
+    @staticmethod
+    def median(*args):
         """Simple median calculator"""
         prices = sorted(args)
         totalInstances = len(args)
@@ -65,7 +67,8 @@ class Processing:
         standardDeviation = sqrt(standardDeviation)
         return standardDeviation
 
-    def iqr(self, *args):
+    @staticmethod
+    def iqr(*args):
         """simple iqr calculator"""
 
         q1=0;q3=0
