@@ -17,7 +17,7 @@ class Processing:
 
     def average(self, *args):
         """Simple average calculator"""
-        total = sum(args)
+        total = sum(args)  # Error starts here, and goes up the stack.
         totalinstances = len(args)
         average = total / totalinstances
         return average
@@ -28,7 +28,7 @@ class Processing:
         Processing.processeddata.update({'meanprice': mean})
         return mean
 
-    def location(self, *args1, *args2):
+    def location(self, *args1, **args2):
         """Creates an average location for all houses analysed, in longitude and latitude.
 
         Uses output from Processing.average() to determine average latitude and longitude.
@@ -57,7 +57,7 @@ class Processing:
         if len(args) <= 1:
             return -1
 
-        mean = self.average(args)
+        mean = self.mean(args)
         sum = 0
         for a in args:
             sum += pow((a - mean),2)
