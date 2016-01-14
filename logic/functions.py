@@ -1,12 +1,11 @@
 import json  # import function unused for now, until we have a sample JSON file.
+from math import pow, sqrt
 
 class Processing:
     """Contains logic for processing json from wrapper.
 
-    :mean: defines mean price of input prices from mean
+    :meanprice: defines mean price of input prices.
     :location: defines average lat and long for input.
-    :average: defines average.
-    :median: defines median for input data.
     Note: JSON imports INCOMPLETE
     """
     processeddata = {}
@@ -24,19 +23,15 @@ class Processing:
         Processing.processeddata.update({'meanprice': mean})
         return mean
 
-    def location(self, *args1, **args2):
+    def location(self, *args1, *args2):
         """Creates an average location for all houses analysed, in longitude and latitude.
 
         Uses output from Processing.average() to determine average latitude and longitude.
-
-        I think there would be an issue the Processing.processeddata.update({'meanprice': mean})
-        because it would record this average as the meanprice, so I created a seperate mean function
-        that will call the average function
         """
         averagelat = self.average(args1)
         averagelong = self.average(args2)
         Processing.processeddata.update({'averagelat': averagelat, 'averagelong': averagelong})
-        
+
     def median(self, *args):
         """Simple median calculator"""
         prices = sorted(args)
@@ -46,10 +41,41 @@ class Processing:
         else:
             median = prices[int((totalInstances-1)/2)]
         Processing.processeddata.update({'median':median})
-<<<<<<< Updated upstream
         return prices[int((totalInstances-1)/2)]
-=======
-        return prices[(totalInstances-1)/2]
 
-    def iqr(self):
->>>>>>> Stashed changes
+    def standardDeviation(self, *args):
+        """
+        finds the standard deviation using the formula for samples(hence the len(args) -1) which is sqrt((sum((x - mean)^2)/n-1)
+        """
+
+        #makes sure that the sample size is graeter than one
+        if len(args) <= 1:
+            return -1
+
+        mean = self.average(args)
+        sum = 0
+        for a in args:
+            sum += pow((a - mean),2)
+        standardDeviation = sum/(len(args)-1)
+        standardDeviation = sqrt(standardDeviation)
+        return standardDeviation
+
+    def iqr(self, *args):
+        """simple iqr calculator"""
+
+        q1=0;q3=0
+        prices = sorted(args)
+        length = len(prices)
+        if length%4 == 0:
+            q1 = (prices[int(length/4)]+prices[int(length/4)-1])/2
+            q3 = (prices[length-int(length/4)]+prices[length-1-(length/4)])/2
+        elif length%2 == 0:
+            q1 = prices[int(((length/2)-1)/2)]
+            q3 = prices[length-1-int(((length/2)-1)/2)]
+        elif (length-1)%4 == 0:
+            q1 = (prices[int((length-1)/4)] + prices[int((length-1)/4)-1])/2
+            q3 = (prices[length-int((length-1)/4)]+prices[length-int((length-1)/4)-1])/2
+        else:
+            q1 = prices[int((((length-1)/2)-1)/2)]
+            q3 = prices[length-int((((length-1)/2)-1)/2)-1]
+        return q3 - q1
