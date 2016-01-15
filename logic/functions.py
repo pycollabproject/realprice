@@ -18,6 +18,8 @@ class Processing:
     @staticmethod
     def average(*args):
         """Simple average calculator"""
+        if type(args[0]) is not int:
+             args = args[0]
         total = sum(args)  # Error starts here, and goes up the stack.
         totalinstances = len(args)
         average = total / totalinstances
@@ -62,7 +64,7 @@ class Processing:
         if len(args) <= 1:
             return -1
 
-        mean = cls.mean(args)
+        mean = cls.average(args)
         sum = 0
         for a in args:
             sum += pow((a - mean),2)
